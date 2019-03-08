@@ -45,8 +45,17 @@ student* seed_students(int max_students) {
 }
 
 void print_menu() {
-	cout << "Choose action:\n(1)Add student\n(2)Remove student\n(3)Update student\n(4)View students\n(5)Calculate student's total\n";
-	cout << "(6)Best student\n(7)Worst student\n(8)Search by ID\n(9)Sort by total\n(0)Quit\n";
+	cout << "Choose action:\n"
+		"(1)Add student\n"
+		"(2)Remove student\n"
+		"(3)Update student\n"
+		"(4)View students\n"
+		"(5)Calculate student's total\n"
+		"(6)Best student\n"
+		"(7)Worst student\n"
+		"(8)Search by ID\n"
+		"(9)Sort by total\n"
+		"(0)Quit\n";
 }
 
 int compare(const void * a, const void * b)
