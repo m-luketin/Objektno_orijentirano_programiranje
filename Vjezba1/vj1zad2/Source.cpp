@@ -15,31 +15,30 @@ struct student
 	int total_grade;
 };
 
-
 student* seed_students(int max_students) {
 	student* array_of_students;
 	array_of_students = (student*)calloc(max_students, sizeof(student));
 
-	array_of_students[0] = { "1", "Alex Amanzi", 1, (4, 5), 4, 5, 18 };
-	array_of_students[1] = { "2", "Marko Juric", 1, (2, 2), 2, 2, NULL };
-	array_of_students[2] = { "3", "Ivan Peric", 1, (2, 5), 2, 5, 14 };
-	array_of_students[3] = { "4", "Ante Vuletic", 1, (3, 3), 3, 3, 12 };
-	array_of_students[4] = { "5", "Ivana Antic", 0, (2, 4), 3, 5, NULL };
-	array_of_students[5] = { "6", "Jure Radun", 1, (1, 5), 2, 3, NULL };
-	array_of_students[6] = { "7", "Sime Simunic", 1, (3, 2), 2, 3, NULL };
-	array_of_students[7] = { "8", "Marin Kovac", 1, (1, 1), 1, 1, NULL };
-	array_of_students[8] = { "9", "Antonia Juric", 0, (2, 3), 3, 4, 12 };
-	array_of_students[9] = { "10", "Marina Veljic", 0, (4, 4), 4, 4, NULL };
-	array_of_students[10] = { "11", "Petar Baric", 1, (2, 2), 2, 2, 8 };
-	array_of_students[11] = { "12", "Lora Zderic", 0, (3, 2), 3, 2, NULL };
-	array_of_students[12] = { "13", "Ivo Strmotic", 1, (4, 5), 4, 5, NULL };
-	array_of_students[13] = { "14", "Mateo Ivic", 1, (5, 2), 4, 3, 14 };
-	array_of_students[14] = { "15", "Antonio Katic", 1, (2, 1), 2, 2, NULL };
-	array_of_students[15] = { "16", "Mario Krolo", 1, (3, 4), 2, 4, 13 };
-	array_of_students[16] = { "17", "Tea Begonja", 0, (2, 5), 3, 3, 13 };
-	array_of_students[17] = { "18", "Ivica Lulic", 1, (1, 5), 2, 5, NULL };
-	array_of_students[18] = { "19", "Toma Maric", 1, (4, 5), 4, 5, NULL };
-	array_of_students[19] = { "20", "Matija Luketin", 1, (5, 5), 5, 5, 20 };
+	array_of_students[0] = { "1", "Alex Amanzi", 1, {4, 5 }, 4, 5, 18};
+	array_of_students[1] = { "2", "Marko Juric", 1, {2, 2}, 2, 2, NULL };
+	array_of_students[2] = { "3", "Ivan Peric", 1, {2, 5}, 2, 5, 14 };
+	array_of_students[3] = { "4", "Ante Vuletic", 1, {3, 3}, 3, 3, 12 };
+	array_of_students[4] = { "5", "Ivana Antic", 0, {2, 4}, 3, 5, NULL };
+	array_of_students[5] = { "6", "Jure Radun", 1, {1, 5}, 2, 3, NULL };
+	array_of_students[6] = { "7", "Sime Simunic", 1, {3, 2}, 2, 3, NULL };
+	array_of_students[7] = { "8", "Marin Kovac", 1, {1, 1}, 1, 1, NULL };
+	array_of_students[8] = { "9", "Antonia Juric", 0, {2, 3}, 3, 4, 12 };
+	array_of_students[9] = { "10", "Marina Veljic", 0, {4, 4}, 4, 4, NULL };
+	array_of_students[10] = { "11", "Petar Baric", 1, {2, 2}, 2, 2, 8 };
+	array_of_students[11] = { "12", "Lora Zderic", 0, {3, 2}, 3, 2, NULL };
+	array_of_students[12] = { "13", "Ivo Strmotic", 1, {4, 5}, 4, 5, NULL };
+	array_of_students[13] = { "14", "Mateo Ivic", 1, {5, 2}, 4, 3, 14 };
+	array_of_students[14] = { "15", "Antonio Katic", 1, {2, 1}, 2, 2, NULL };
+	array_of_students[15] = { "16", "Mario Krolo", 1, {3, 4}, 2, 4, 13 };
+	array_of_students[16] = { "17", "Tea Begonja", 0, {2, 5}, 3, 3, 13 };
+	array_of_students[17] = { "18", "Ivica Lulic", 1, {1, 5}, 2, 5, NULL };
+	array_of_students[18] = { "19", "Toma Maric", 1, {4, 5}, 4, 5, NULL };
+	array_of_students[19] = { "20", "Matija Luketin", 1, {5, 5}, 5, 5, 20 };
 
 	return array_of_students;
 }
@@ -202,7 +201,7 @@ void print_students(student *students, int high, int low = 0) { //implemented wi
 			cout << "Student:  " << students[low].id << "  " << students[low].name;
 			students[low].gender ? cout << "  Male" : cout << "  Female"; //converting bool to string
 			cout << "\nGrades:     " << students[low].quiz_grades[0] << "     " << students[low].quiz_grades[1] << "     " << students[low].mid_term_grade << "\n";
-			if (students[low].total_grade == NULL)// != changed for testing
+			if (students[low].total_grade != NULL)
 				cout << "Total grade:   " << students[low].total_grade << "\n";
 			cout << "------------------------------------\n";
 
@@ -310,7 +309,7 @@ int main() {
 				update_student(&array_of_students, max_students);
 				break;
 			case 4:
-				print_students(array_of_students, max_students);// does not print the proper total grade
+				print_students(array_of_students, max_students);
 				break;
 			case 5:
 				calculate_total_grade(&array_of_students, max_students);
@@ -325,7 +324,7 @@ int main() {
 				print_student_by_id(array_of_students, max_students);
 				break;
 			case 9:
-				bubblesort_students_by_total(&array_of_students, max_students); // not in function
+				bubblesort_students_by_total(&array_of_students, max_students); // not working
 				break;
 		}
 	}
