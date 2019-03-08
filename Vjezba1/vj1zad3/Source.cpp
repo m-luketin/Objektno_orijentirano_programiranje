@@ -15,10 +15,10 @@ int& find_number(int *array, int n) {
 int main() {
 	const int size_of_array = 8;
 	int array[size_of_array] = { 1000, 4957, 1039, 4960, 3960, 1312, 6048, 1694 };
+
 	int &number = find_number(array, size_of_array);
 
-	cout << number << "\n";
-	number += 1;
+	number++;
 	cout << number << "\n";
 
 	system("pause");
