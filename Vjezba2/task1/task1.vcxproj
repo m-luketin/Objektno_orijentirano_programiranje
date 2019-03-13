@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{FD8BBFF7-3F09-4D01-8392-88CE8003A025}</ProjectGuid>
+    <ProjectGuid>{B557E779-D81B-4A05-B0DF-0D35A47116C2}</ProjectGuid>
     <RootNamespace>Vjezba2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
     <ProjectName>task1</ProjectName>
