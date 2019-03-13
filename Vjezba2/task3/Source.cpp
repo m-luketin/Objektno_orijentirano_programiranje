@@ -11,7 +11,6 @@ struct fake_vector
 	int size;
 };
 
-
 fake_vector* vector_new(int allocation_size)
 {
 	fake_vector* vector = new fake_vector;

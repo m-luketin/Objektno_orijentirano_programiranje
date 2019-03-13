@@ -55,6 +55,7 @@ void parity_sort(int* array, int array_size)
 			end--;
 	}
 }
+
 int main() 
 {
 	int size_of_array = 8;
