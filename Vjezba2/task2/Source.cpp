@@ -64,5 +64,6 @@ int main()
 
 	print(array, size_of_array);
 
+	delete[] array;
 	system("pause");
 }

@@ -63,5 +63,6 @@ int main()
 	}
 	cout << "\n";
 
+	delete[] array;
 	system("pause");
 }
