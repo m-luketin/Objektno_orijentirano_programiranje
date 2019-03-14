@@ -3,7 +3,7 @@
 using namespace std;
 
 
-int main(){
+int main() {
 	int numberArray[] = { 1, 4, 7, 3, 8, 2, 9, 2, 9, 7 };
 	int N = sizeof(numberArray) / sizeof(int);
 
