@@ -3,6 +3,8 @@
 #include <vector>
 #include <algorithm>
 
+#include "Vjezba3.h"
+
 using namespace std;
 
 vector<int> VectorInput(bool randGen, int a = 0, int b = 100, int n = 5)
@@ -34,16 +36,6 @@ void PrintVector(vector<int> vector)
 	for (int i = 0; i < vector.size(); i++)
 		cout << vector[i] << " ";
 	cout << "\n";
-}
-
-vector<int> VectorDifference(vector<int> firstVector, vector<int> secondVector)
-{
-	vector<int> newVector;
-	for (int i = 0; i < firstVector.size(); i++) {
-		if (!binary_search(secondVector.begin(), secondVector.end(), firstVector[i]))
-			newVector.push_back(firstVector[i]);
-	}
-	return newVector;
 }
 
 int main()
