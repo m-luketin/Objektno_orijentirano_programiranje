@@ -20,7 +20,7 @@ string RepairInterpunction(string sentence)
 
 int main()
 {
-	string sentence = "I would ,if I can ,write this correctly .";
+	string sentence = "I would ,if I can , write this correctly .";
 
 	sentence = RepairInterpunction(sentence);
 	cout << sentence << "\n";
