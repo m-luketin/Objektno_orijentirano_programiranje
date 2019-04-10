@@ -12,6 +12,6 @@ public:
 	Pistol(Position position, int capacity);
 	void Shoot();
 	void Reload();
-	int Bullets();
-	Position GetPosition();
+	int Bullets() const;
+	Position GetPosition() const;
 };

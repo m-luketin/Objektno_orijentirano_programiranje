@@ -9,17 +9,17 @@ class Position
 public:
 	Position();
 
-	Position(double x, double y, double z);
+	Position(const double x, const double y, const double z);
 
-	void SetRandomPosition(int lowerLimit, int higherLimit);
+	void SetRandomPosition(const int lowerLimit, const int higherLimit);
 
-	void PrintPosition();
+	void PrintPosition() const;
 
-	double GetWidth();
+	double GetWidth() const;
 
-	double GetLength();
+	double GetLength() const;
 
-	double GetHeight();
+	double GetHeight() const;
 
-	double Distance(Position otherPosition, int dimensions);
+	double Distance(const Position otherPosition, const int dimensions) const;
 };

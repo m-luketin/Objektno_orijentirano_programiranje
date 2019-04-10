@@ -34,12 +34,12 @@ void Pistol::Reload()
 	std::cout << "Reloaded!\n";
 }
 
-int Pistol::Bullets()
+int Pistol::Bullets() const
 {
 	return bullets;
 }
 
-Position Pistol::GetPosition()
+Position Pistol::GetPosition() const 
 {
 	return position;
 }

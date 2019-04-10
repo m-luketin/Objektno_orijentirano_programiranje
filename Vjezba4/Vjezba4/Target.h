@@ -11,9 +11,9 @@ class Target
 
 public:
 	Target();
-	Target(Position position, int width, int height);
+	Target(const Position position, const int width, const int height);
 	void Hit();
-	bool IsHit();
-	Position GetPosition();
-	int GetHeight();
+	bool IsHit() const;
+	Position GetPosition() const;
+	int GetHeight() const;
 };

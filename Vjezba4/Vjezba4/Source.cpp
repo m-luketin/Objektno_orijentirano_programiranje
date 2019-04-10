@@ -1,14 +1,14 @@
 #include "Pistol.h"
 #include "Target.h"
-#include <time.h>
+#include <ctime>
 #include <iostream>
-
+#include <random>
 
 bool DidGunHitTarget(Pistol pistol, Target target)
 {
-	int targetBottom = target.GetPosition().GetHeight();
-	int targetTop = target.GetHeight() + targetBottom;
-	int pistolHeight = pistol.GetPosition().GetHeight();
+	const auto targetBottom = target.GetPosition().GetHeight(),
+	targetTop = target.GetHeight() + targetBottom,
+	pistolHeight = pistol.GetPosition().GetHeight();
 
 	return(targetBottom < pistolHeight && targetTop > pistolHeight);
 }
@@ -16,9 +16,10 @@ bool DidGunHitTarget(Pistol pistol, Target target)
 
 int main()
 {
-	srand(time(NULL));
+	srand(time(nullptr));
 	//1st task
-	Position firstPosition(2, 9, 20), secondPosition(1, 3, 12);
+	Position firstPosition(2, 9, 20);
+	const Position secondPosition(1, 3, 12);
 	std::cout<< "2D points distance:" << firstPosition.Distance(secondPosition, 2) << "\n";
 	std::cout << "3D points distance:" << firstPosition.Distance(secondPosition, 3) << "\n";
 	
@@ -27,14 +28,14 @@ int main()
 	std::cout << "Please enter the number of targets:\n";
 	std::cin >> n;
 
-	Target *targets = new Target[n];
+	auto *targets = new Target[n];
 
-	Position gunPosition(0, 0, 0);
-	Pistol pistol(gunPosition, 8);
+	const Position gunPosition(0, 0, 0);
+	const Pistol pistol(gunPosition, 8);
 
-	for (int i = 0; i < n; i++) 
+	for (auto i = 0; i < n; i++) 
 	{
-		Target tmpTarget;
+		const Target tmpTarget;
 		targets[i] = tmpTarget;
 		std::cout << "Target " << i << ": ";
 		targets[i].GetPosition().PrintPosition();
@@ -47,6 +48,7 @@ int main()
 	}
 
 	std::cout << hitCounter << " targets hit!\n";
-	
+
+	delete[] targets;
 	system("pause");
 }

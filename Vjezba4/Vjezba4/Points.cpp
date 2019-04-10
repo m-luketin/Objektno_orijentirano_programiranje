@@ -1,5 +1,4 @@
 #include "Points.h"
-#include <random>
 #include <iostream>
 
 Position::Position()
@@ -9,50 +8,50 @@ Position::Position()
 	z = 0;
 }
 
-Position::Position(double width = 0, double length = 0, double height = 0)
+Position::Position(const double width = 0, const double length = 0, const double height = 0)
 {
 	x = width;
 	y = length;
 	z = height;
 }
 
-void Position::SetRandomPosition(int lowerLimit, int higherLimit)
+void Position::SetRandomPosition(const int lowerLimit, const int higherLimit)
 {
-	x = rand() % (higherLimit - lowerLimit) + lowerLimit;
-	y = rand() % (higherLimit - lowerLimit) + lowerLimit;
-	z = rand() % (higherLimit - lowerLimit) + lowerLimit;
+	x = rand() % (higherLimit - lowerLimit) + double(lowerLimit);
+	y = rand() % (higherLimit - lowerLimit) + double(lowerLimit);
+	z = rand() % (higherLimit - lowerLimit) + double(lowerLimit);
 }
 
-void Position::PrintPosition()
+void Position::PrintPosition() const
 {
 	std::cout << Position::x << " " << Position::y << " " << Position::z << "\n";
 }
 
-double Position::GetWidth()
+double Position::GetWidth() const
 {
 	return x;
 }
 
-double Position::GetLength()
+double Position::GetLength() const
 {
 	return y;
 }
 
-double Position::GetHeight()
+double Position::GetHeight() const
 {
 	return z;
 }
 
-double Position::Distance(Position otherPosition, int dimensions)
+double Position::Distance(const Position otherPosition, const int dimensions) const
 {
 	if (dimensions == 2 || dimensions == 3) 
 	{
-		double squaredWidth = pow((x - otherPosition.x), 2);
-		double squaredLength = pow((y - otherPosition.y), 2);
-		double squaredHeight = 0;
+		const auto squaredWidth = pow((x - otherPosition.x), 2);
+		const auto squaredLength = pow((y - otherPosition.y), 2);
+		auto squaredHeight = 0.0;
 
 		if (dimensions == 3) 
-			double squaredHeight = pow((z - otherPosition.z), 2);
+			squaredHeight = pow((z - otherPosition.z), 2);
 		
 		return sqrt(squaredHeight + squaredLength + squaredWidth);
 	}
