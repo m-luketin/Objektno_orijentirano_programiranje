@@ -12,7 +12,7 @@ class Food
 	int Carbs;
 	std::string DateOfExpiration;
 	int DailyRequirement;
-	std::map<std::string, Food> *MonthlySpending;
+	int* MonthlySpending;
 
 public:
 	Food();
@@ -23,6 +23,7 @@ public:
 	int GetExpirationYear();
 	int GetExpirationMonth();
 	int GetExpirationDay();
-	void Print() const;
+	void Print();
 	void EnterMonthlySpending();
+	int AllocationSize();
 };

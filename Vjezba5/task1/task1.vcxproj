@@ -23,6 +23,7 @@
     <ProjectGuid>{BC025A7D-1483-4D78-8506-69122A450856}</ProjectGuid>
     <RootNamespace>task1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <ProjectName>Vjezba5</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

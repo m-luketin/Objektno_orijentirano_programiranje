@@ -3,29 +3,23 @@
 #include <list>
 #include <chrono>
 #include <iostream>
+#include <array>
 
 typedef std::chrono::system_clock Clock;
 
-Food::Food(const std::string foodType, const std::string foodName, const int waterPercentage, const int proteinPercentage, const int fatPercentage, const int carbsPercentage, const std::string dateOfExpiration, const int dailyFoodRequirement)
+Food::Food(const std::string ft, const std::string fn, const int wp, const int pp, const int fp, const int cp, const std::string doe, const int dfr)
 {
-	Type = foodType;
-	Name = foodName;
-	Water = waterPercentage;
-	Protein = proteinPercentage;
-	Fat = fatPercentage;
-	Carbs = carbsPercentage;
-	DateOfExpiration = dateOfExpiration;
-	DailyRequirement = dailyFoodRequirement;
+	Type = ft;
+	Name = fn;
+	Water = wp;
+	Protein = pp;
+	Fat = fp;
+	Carbs = cp;
+	DateOfExpiration = doe;
+	DailyRequirement = dfr;
 
-	const auto now = Clock::now();
-	auto currentClock = Clock::to_time_t(now);
-	const auto currentTime = localtime(&currentClock);
-	const auto currentMonth = currentTime->tm_mon + 1;
-	const auto currentYear = currentTime->tm_year + 1900;
-
-	const auto monthDifference = abs(GetExpirationYear() - currentYear) * 12 + abs(GetExpirationMonth() - currentMonth);
-
-	MonthlySpending = new std::map<std::string, Food>;
+	MonthlySpending = new int[AllocationSize()];
+	std::cout << AllocationSize() << "\n";
 
 	std::cout << "Constructor called!\n";
 }
@@ -40,7 +34,7 @@ Food::~Food()
 
 Food::Food(const Food &otherFood)
 {
-	Type = otherFood.Type;
+	Type = otherFood.Type;          
 	Name = otherFood.Name;
 	Water = otherFood.Water;
 	Protein = otherFood.Protein;
@@ -48,9 +42,26 @@ Food::Food(const Food &otherFood)
 	Carbs = otherFood.Carbs;
 	DateOfExpiration = otherFood.DateOfExpiration;
 	DailyRequirement = otherFood.DailyRequirement;
-	MonthlySpending = otherFood.MonthlySpending;
+
+	MonthlySpending = new int[AllocationSize()];
+
+	for (unsigned int i = 0; i < AllocationSize(); i++)
+		MonthlySpending[i] = otherFood.MonthlySpending[i];
 
 	std::cout << "Copy-constructor called!\n";
+}
+
+int Food::AllocationSize()
+{
+	const auto now = Clock::now();
+	auto currentClock = Clock::to_time_t(now);
+	const auto currentTime = localtime(&currentClock);
+	const auto currentMonth = currentTime->tm_mon + 1;
+	const auto currentYear = currentTime->tm_year + 1900;
+
+	const auto monthDifference = abs(GetExpirationYear() - currentYear) * 12 + abs(GetExpirationMonth() - currentMonth);
+
+	return monthDifference;
 }
 
 void Food::DailyChange(const bool increaseOrDecrease)
@@ -98,7 +109,7 @@ int Food::GetExpirationDay()
 }
 
 
-void Food::Print() const
+void Food::Print()
 {
 	std::cout << Name << "\nType:" << Type
 		<< "\nWater pct:" << Water
@@ -106,11 +117,20 @@ void Food::Print() const
 		<< "\nFat pct:" << Fat
 		<< "\nCarbs:" << Carbs
 		<< "\nExpiration:" << DateOfExpiration
-		<< "\nDaily req:" << DailyRequirement << "\n\n";
+		<< "\nDaily req:" << DailyRequirement << "\nMonthly spending: ";
+
+	for (auto i = 0; i < AllocationSize(); i++)
+	{
+		std::cout << MonthlySpending[i] << " ";
+	}
+	std::cout << "\n\n";
 }
 
 void Food::EnterMonthlySpending()
 {
-	
+	for (auto i = 0; i < AllocationSize(); i++)
+	{
+		MonthlySpending[i] = int(rand() % 10);
+	}
 
 }
