@@ -4,55 +4,69 @@
 #include <chrono>
 #include <iostream>
 
-Food::Food(char* foodType, char* foodName, int waterPercentage, int proteinPercentage, int fatPercentage, int carbsPercentage, char* dateOfExpiration, int dailyFoodRequirement)
-{
-	type = foodType;
-	name = foodName;
-	water = waterPercentage;
-	protein = proteinPercentage;
-	fat = fatPercentage;
-	carbs = carbsPercentage;
-	date = dateOfExpiration;
-	dailyRequirement = dailyFoodRequirement;
+typedef std::chrono::system_clock Clock;
 
-	std::string parsedDate = date.split("-");
-	
-	monthlySpending = new int[];
+Food::Food(const std::string foodType, const std::string foodName, const int waterPercentage, const int proteinPercentage, const int fatPercentage, const int carbsPercentage, const std::string dateOfExpiration, const int dailyFoodRequirement)
+{
+	Type = foodType;
+	Name = foodName;
+	Water = waterPercentage;
+	Protein = proteinPercentage;
+	Fat = fatPercentage;
+	Carbs = carbsPercentage;
+	DateOfExpiration = dateOfExpiration;
+	DailyRequirement = dailyFoodRequirement;
+
+	const auto now = Clock::now();
+	auto currentClock = Clock::to_time_t(now);
+	const auto currentTime = localtime(&currentClock);
+	const auto currentMonth = currentTime->tm_mon + 1;
+	const auto currentYear = currentTime->tm_year + 1900;
+
+	const auto monthDifference = abs(GetExpirationYear() - currentYear) * 12 + abs(GetExpirationMonth() - currentMonth);
+
+	MonthlySpending = new std::map<std::string, Food>;
+
+	std::cout << "Constructor called!\n";
 }
 
 Food::~Food()
 {
-	delete[] monthlySpending;
-	delete this;
+	//delete[] MonthlySpending;
+	//delete this;
+
+	std::cout << "Destructor called!\n";
 }
 
 Food::Food(const Food &otherFood)
 {
-	type = otherFood.type;
-	name = otherFood.name;
-	water = otherFood.water;
-	protein = otherFood.protein;
-	fat = otherFood.fat;
-	carbs = otherFood.carbs;
-	date = otherFood.date;
-	dailyRequirement = otherFood.dailyRequirement;
-	monthlySpending = otherFood.monthlySpending;
+	Type = otherFood.Type;
+	Name = otherFood.Name;
+	Water = otherFood.Water;
+	Protein = otherFood.Protein;
+	Fat = otherFood.Fat;
+	Carbs = otherFood.Carbs;
+	DateOfExpiration = otherFood.DateOfExpiration;
+	DailyRequirement = otherFood.DailyRequirement;
+	MonthlySpending = otherFood.MonthlySpending;
+
+	std::cout << "Copy-constructor called!\n";
 }
 
-void Food::DailyChange(bool increaseOrDecrease)
+void Food::DailyChange(const bool increaseOrDecrease)
 {
 	if (increaseOrDecrease)
-		dailyRequirement++;
+		DailyRequirement++;
 	else
-		dailyRequirement--;
+		DailyRequirement--;
 }
 
 int Food::GetExpirationYear() 
 {
-	int year;
-	for (int i = 0; i < 4; i++)
+	auto year = 0;
+	for (auto i = 0; i < 4; i++)
 	{
-		year += date[i + 6] - 48;
+		year += DateOfExpiration[i + 6] - 48;
 		year *= 10;
 	}
 
@@ -61,10 +75,10 @@ int Food::GetExpirationYear()
 
 int Food::GetExpirationMonth()
 {
-	int month;
-	for (int i = 0; i < 2; i++)
+	auto month = 0;
+	for (auto i = 0; i < 2; i++)
 	{
-		month += date[i + 3] - 48;
+		month += DateOfExpiration[i + 3] - 48;
 		month *= 10;
 	}
 
@@ -73,19 +87,30 @@ int Food::GetExpirationMonth()
 
 int Food::GetExpirationDay()
 {
-	int day;
-	for (int i = 0; i < 2; i++)
+	auto day = 0;
+	for (auto i = 0; i < 2; i++)
 	{
-		day += date[i] - 48;
+		day += DateOfExpiration[i] - 48;
 		day *= 10;
 	}
-
+	
 	return day / 10;
 }
 
-int Food::CalculateAllocationSize()
+
+void Food::Print() const
 {
-	tm* time = localtime(NULL);
-	std::cout << time;
+	std::cout << Name << "\nType:" << Type
+		<< "\nWater pct:" << Water
+		<< "\nProtein pct:" << Protein
+		<< "\nFat pct:" << Fat
+		<< "\nCarbs:" << Carbs
+		<< "\nExpiration:" << DateOfExpiration
+		<< "\nDaily req:" << DailyRequirement << "\n\n";
+}
+
+void Food::EnterMonthlySpending()
+{
+	
 
 }
