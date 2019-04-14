@@ -4,8 +4,17 @@
 #include <chrono>
 #include <iostream>
 #include <array>
+#include <algorithm>
+#include <cctype>
 
 typedef std::chrono::system_clock Clock;
+
+Spending::Spending()
+{
+	year = 0;
+	month = 0;
+	spending = 0;
+}
 
 Food::Food(const std::string ft, const std::string fn, const int wp, const int pp, const int fp, const int cp, const std::string doe, const int dfr)
 {
@@ -18,8 +27,7 @@ Food::Food(const std::string ft, const std::string fn, const int wp, const int p
 	DateOfExpiration = doe;
 	DailyRequirement = dfr;
 
-	MonthlySpending = new int[AllocationSize()];
-	std::cout << AllocationSize() << "\n";
+	MonthlySpending = new Spending[AllocationSize()];
 
 	std::cout << "Constructor called!\n";
 }
@@ -43,9 +51,9 @@ Food::Food(const Food &otherFood)
 	DateOfExpiration = otherFood.DateOfExpiration;
 	DailyRequirement = otherFood.DailyRequirement;
 
-	MonthlySpending = new int[AllocationSize()];
+	MonthlySpending = new Spending[AllocationSize()];
 
-	for (unsigned int i = 0; i < AllocationSize(); i++)
+	for ( auto i = 0; i < AllocationSize(); i++)
 		MonthlySpending[i] = otherFood.MonthlySpending[i];
 
 	std::cout << "Copy-constructor called!\n";
@@ -64,11 +72,11 @@ int Food::AllocationSize()
 	return monthDifference;
 }
 
-void Food::DailyChange(const bool increaseOrDecrease)
+void Food::DailyChange(const int increaseOrDecrease)
 {
-	if (increaseOrDecrease)
+	if (increaseOrDecrease == 1)
 		DailyRequirement++;
-	else
+	else if(increaseOrDecrease == -1)
 		DailyRequirement--;
 }
 
@@ -121,16 +129,136 @@ void Food::Print()
 
 	for (auto i = 0; i < AllocationSize(); i++)
 	{
-		std::cout << MonthlySpending[i] << " ";
+		if(MonthlySpending[i].year)
+			std::cout << MonthlySpending[i].month << " " << MonthlySpending[i].year << " " << MonthlySpending[i].spending << "   ";
 	}
 	std::cout << "\n\n";
 }
 
-void Food::EnterMonthlySpending()
+int CompareIntegers(const int a, const int b) {
+	if (a < b) {
+		return -1;
+	}
+	else if (a > b) {
+		return 1;
+	}
+	return 0;
+}
+
+int Compare(const void *a, const void *b) {
+	const Spending *firstElement = (Spending *)a;
+	const Spending *secondElement = (Spending *)b;
+
+	if (firstElement->year == secondElement->year) {
+		return CompareIntegers(firstElement->month, secondElement->month);
+	}
+	else if (firstElement->year > secondElement->year) {
+		return +1;
+	}
+	return -1;
+}
+
+void Food::RandomizeMonthlySpending()
 {
 	for (auto i = 0; i < AllocationSize(); i++)
 	{
-		MonthlySpending[i] = int(rand() % 10);
+		MonthlySpending[i].year = int(rand() % 3 + 2017);
+		MonthlySpending[i].month = int(rand() % 12 + 1);
+		MonthlySpending[i].spending = int(rand() % 50);
+	}
+	qsort(MonthlySpending, AllocationSize(), sizeof(Spending), Compare);
+}
+
+void Food::EnterMonthlySpending()
+{
+	const auto now = Clock::now();
+	auto currentClock = Clock::to_time_t(now);
+	const auto currentTime = localtime(&currentClock);
+	const auto currentYear = currentTime->tm_year + 1900;
+
+	char tmpMonth;
+	std::cout << "Enter month number for spending:\n";
+	std::cin >> tmpMonth;
+	if (!std::isdigit(tmpMonth))
+	{
+		std::cout << "Not a number!\n";
+		return;
+	}
+	else if ((tmpMonth - 48) < 0 || (tmpMonth - 48) > 12)
+	{
+		std::cout << "Not a valid month!\n";
+		return;
 	}
 
+	std::string tmpSpending;
+	std::cout << "Enter spending:\n";
+	std::cin >> tmpSpending;
+	const auto tmpSpendingNum = std::stoi(tmpSpending);
+
+	if ((tmpSpendingNum - 48) < 0)
+	{
+		std::cout << "Not a valid entry!\n";
+		return;
+	}
+
+	for (auto i = 0; i < AllocationSize(); i++)
+	{
+		if(MonthlySpending[i].year == currentYear ||
+			MonthlySpending[i].month == tmpMonth - 48 ||
+			MonthlySpending[i].spending == tmpSpendingNum)
+		{
+			std::cout << "Month already entered!\n";
+			return;
+		}
+	}
+
+	for (auto i = 0; i < AllocationSize(); i++)
+	{
+		if (!MonthlySpending[i].year) {
+			MonthlySpending[i].year = currentYear;
+			MonthlySpending[i].month = tmpMonth - 48;
+			MonthlySpending[i].spending = tmpSpendingNum;
+
+			qsort(MonthlySpending, AllocationSize(), sizeof(Spending), Compare);
+			return;
+		}
+	}
+	std::cout << "No more space for entries!\n";
+}
+
+int Food::CalculateSpendingChange()
+{
+	const auto now = Clock::now();
+	auto currentClock = Clock::to_time_t(now);
+	const auto currentTime = localtime(&currentClock);
+	const auto currentYear = currentTime->tm_year + 1900;
+
+	auto lastYearSum = 0, thisYearSum = 0, lastYearCount = 0, thisYearCount = 0;
+
+	for (auto i = 0; i < AllocationSize(); i++)
+	{
+		if (MonthlySpending[i].year == currentYear - 1)
+		{
+			lastYearSum += MonthlySpending[i].spending;
+			lastYearCount++;
+		}
+	}
+	const auto lastYearAverage = double(lastYearSum) / lastYearCount;
+
+	for (auto i = 0; i < AllocationSize(); i++)
+	{
+		if (MonthlySpending[i].year == currentYear)
+		{
+			thisYearSum += MonthlySpending[i].spending;
+			thisYearCount++;
+		}
+	}
+	const auto thisYearAverage = double(thisYearSum) / thisYearCount;
+
+	if (thisYearAverage / lastYearAverage > 1.1)
+		return 1;
+	if (thisYearAverage / lastYearAverage < 0.9)
+		return -1;
+
+	return 0;
 }
