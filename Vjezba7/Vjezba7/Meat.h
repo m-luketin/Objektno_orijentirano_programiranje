@@ -1,7 +1,5 @@
 #pragma once
 
-#pragma once
-
 #include "Food.h"
 
 class Meat : public Food
