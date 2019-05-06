@@ -7,5 +7,5 @@ Madjarica::Madjarica(const int md, const std::string ft, const std::string fn, c
 
 Madjarica::~Madjarica()
 {
-	delete this;
+	//delete this;
 }

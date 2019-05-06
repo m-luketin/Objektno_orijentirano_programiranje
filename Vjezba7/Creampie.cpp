@@ -7,5 +7,5 @@ Creampie::Creampie(const int md, const std::string ft, const std::string fn, con
 
 Creampie::~Creampie()
 {
-	delete this;
+	//delete this;
 }

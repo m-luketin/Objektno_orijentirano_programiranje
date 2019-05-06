@@ -2,6 +2,8 @@
 #include <string>
 #include <map>
 
+using namespace std;
+
 class Spending
 {
 public:
@@ -29,12 +31,13 @@ public:
 	~Food();
 	Food(const Food &otherFood);
 	void DailyChange(int increaseOrDecrease);
-	int GetExpirationYear();
-	int GetExpirationMonth();
-	int GetExpirationDay();
-	void Print();
+	int GetExpirationYear() const;
+	int GetExpirationMonth() const;
+	int GetExpirationDay() const;
+	virtual void Print();
 	void EnterMonthlySpending();
 	void RandomizeMonthlySpending();
-	int AllocationSize();
+	int AllocationSize() const;
 	int CalculateSpendingChange();
+	friend ostream& operator<<(ostream& os, const Food& food);
 };

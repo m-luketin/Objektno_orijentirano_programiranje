@@ -7,5 +7,5 @@ Ham::Ham(const int sd, const int md, const std::string ft, const std::string fn,
 
 Ham::~Ham()
 {
-	delete this;
+	//delete this;
 }

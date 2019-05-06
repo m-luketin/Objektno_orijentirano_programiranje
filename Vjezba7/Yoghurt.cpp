@@ -7,5 +7,5 @@ Yoghurt::Yoghurt(const int sd, const int md, const std::string ft, const std::st
 
 Yoghurt::~Yoghurt()
 {
-	delete this;
+	//delete this;
 }

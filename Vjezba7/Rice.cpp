@@ -7,5 +7,5 @@ Rice::Rice(const int sd, const int md, const std::string ft, const std::string f
 
 Rice::~Rice()
 {
-	delete this;
+	//delete this;
 }

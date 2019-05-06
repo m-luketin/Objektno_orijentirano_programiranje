@@ -7,5 +7,5 @@ Steak::Steak(const int sd, const int md, const std::string ft, const std::string
 
 Steak::~Steak()
 {
-	delete this;
+	//delete this;
 }

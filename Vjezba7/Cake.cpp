@@ -7,5 +7,5 @@ Cake::Cake(const int md, const std::string ft, const std::string fn, const int w
 
 Cake::~Cake()
 {
-	delete this;
+	//delete this;
 }

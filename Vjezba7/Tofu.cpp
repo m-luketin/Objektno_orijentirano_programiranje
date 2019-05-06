@@ -7,5 +7,5 @@ Tofu::Tofu(const int sd, const int md, const std::string ft, const std::string f
 
 Tofu::~Tofu()
 {
-	delete this;
+	//delete this;
 }

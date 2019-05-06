@@ -7,5 +7,5 @@ Hummus::Hummus(const int sd, const int md, const std::string ft, const std::stri
 
 Hummus::~Hummus()
 {
-	delete this;
+	//delete this;
 }

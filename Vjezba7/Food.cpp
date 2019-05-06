@@ -9,6 +9,8 @@
 
 typedef std::chrono::system_clock Clock;
 
+using namespace std;
+
 Spending::Spending()
 {
 	year = 0;
@@ -34,8 +36,8 @@ Food::Food(const std::string ft, const std::string fn, const int wp, const int p
 
 Food::~Food()
 {
-	delete[] MonthlySpending;
-	delete this;
+	//delete[] MonthlySpending;
+	//delete this;
 
 	std::cout << "Destructor called!\n";
 }
@@ -59,7 +61,7 @@ Food::Food(const Food &otherFood)
 	std::cout << "Copy-constructor called!\n";
 }
 
-int Food::AllocationSize()
+int Food::AllocationSize() const
 {
 	const auto now = Clock::now();
 	auto currentClock = Clock::to_time_t(now);
@@ -80,7 +82,7 @@ void Food::DailyChange(const int increaseOrDecrease)
 		DailyRequirement--;
 }
 
-int Food::GetExpirationYear() 
+int Food::GetExpirationYear() const
 {
 	auto year = 0;
 	for (auto i = 0; i < 4; i++)
@@ -92,7 +94,7 @@ int Food::GetExpirationYear()
 	return year/10;
 }
 
-int Food::GetExpirationMonth()
+int Food::GetExpirationMonth() const
 {
 	auto month = 0;
 	for (auto i = 0; i < 2; i++)
@@ -104,7 +106,7 @@ int Food::GetExpirationMonth()
 	return month / 10;
 }
 
-int Food::GetExpirationDay()
+int Food::GetExpirationDay() const
 {
 	auto day = 0;
 	for (auto i = 0; i < 2; i++)
@@ -114,25 +116,6 @@ int Food::GetExpirationDay()
 	}
 	
 	return day / 10;
-}
-
-
-void Food::Print()
-{
-	std::cout << Name << "\nType:" << Type
-		<< "\nWater pct:" << Water
-		<< "\nProtein pct:" << Protein
-		<< "\nFat pct:" << Fat
-		<< "\nCarbs:" << Carbs
-		<< "\nExpiration:" << DateOfExpiration
-		<< "\nDaily req:" << DailyRequirement << "\nMonthly spending: ";
-
-	for (auto i = 0; i < AllocationSize(); i++)
-	{
-		if(MonthlySpending[i].year)
-			std::cout << MonthlySpending[i].month << " " << MonthlySpending[i].year << " " << MonthlySpending[i].spending << "   ";
-	}
-	std::cout << "\n\n";
 }
 
 int CompareIntegers(const int a, const int b) {
@@ -261,4 +244,30 @@ int Food::CalculateSpendingChange()
 		return -1;
 
 	return 0;
+}
+
+ostream& operator<<(ostream& os, const Food& food) 
+{
+	os << "Type: " << food.Type << endl
+		<< "Name: " << food.Name << endl
+		<< "Water(%): " << food.Water << endl
+		<< "Protein(%): " << food.Protein << endl
+		<< "Fat(%): " << food.Fat << endl
+		<< "Carbs(%): " << food.Carbs << endl
+		<< "Expiration: " << food.DateOfExpiration << endl
+		<< "Daily requirement(kg): " << food.DailyRequirement << endl
+		<< "Spending:  ";
+	for(auto i = 0; i < food.AllocationSize(); i++)
+	{
+		os << food.MonthlySpending[i].month << "-" << food.MonthlySpending[i].year << ": " << food.MonthlySpending[i].spending << "  ";
+	}
+	os << endl;
+
+	return os;
+}
+
+
+void Food::Print()
+{
+	cout << *this;
 }

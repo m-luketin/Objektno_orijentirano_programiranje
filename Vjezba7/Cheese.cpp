@@ -7,5 +7,5 @@ Cheese::Cheese(const int sd, const int md, const std::string ft, const std::stri
 
 Cheese::~Cheese()
 {
-	delete this;
+	//delete this;
 }

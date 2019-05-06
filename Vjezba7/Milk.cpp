@@ -7,5 +7,5 @@ Milk::Milk(const int sd, const int md, const std::string ft, const std::string f
 
 Milk::~Milk()
 {
-	delete this;
+	//delete this;
 }

@@ -7,5 +7,5 @@ Prosciutto::Prosciutto(const int sd, const int md, const std::string ft, const s
 
 Prosciutto::~Prosciutto()
 {
-	delete this;
+	//delete this;
 }
