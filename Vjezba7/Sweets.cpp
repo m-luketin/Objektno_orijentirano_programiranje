@@ -14,15 +14,16 @@ Sweets::~Sweets()
 	//delete this;
 }
 
-ostream& operator<<(ostream& os, const Sweets& sweets)
+
+ostream& Sweets::Print(ostream& os) const
 {
-	os << (Food)sweets
-		<< "Expenditure(kg): " << sweets.mainExpenditure << endl << endl;
+	Food::Print(os);
+	os << "Main dish(kg): " << mainExpenditure << endl << endl;
 
 	return os;
 }
 
-void Sweets::Print()
+ostream& operator<<(ostream& os, const Sweets& sweets)
 {
-	cout << *this;
+	return sweets.Print(os);
 }

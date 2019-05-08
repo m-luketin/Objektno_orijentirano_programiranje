@@ -34,10 +34,10 @@ public:
 	int GetExpirationYear() const;
 	int GetExpirationMonth() const;
 	int GetExpirationDay() const;
-	virtual void Print();
 	void EnterMonthlySpending();
 	void RandomizeMonthlySpending();
 	int AllocationSize() const;
 	int CalculateSpendingChange();
+	virtual ostream& Print(ostream& os) const;
 	friend ostream& operator<<(ostream& os, const Food& food);
 };

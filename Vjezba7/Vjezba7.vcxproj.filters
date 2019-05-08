@@ -13,114 +13,147 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Food">
+      <UniqueIdentifier>{198ad162-27d3-4d44-bc3f-59b86207f96b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Food\FoodTypes">
+      <UniqueIdentifier>{2ea2eddb-b0da-4c7a-98e5-bbc23b100b59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Food\FoodTypes\Dairy">
+      <UniqueIdentifier>{5e1a2fca-aca3-4911-928e-06155e6bfa8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Food\FoodTypes\Meat">
+      <UniqueIdentifier>{9c8ddc73-e549-49f8-ac5f-762c9919b75a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Food\FoodTypes\Sweets">
+      <UniqueIdentifier>{ea540946-cda7-48aa-ad56-bf2ea5b34a2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Food\FoodTypes\Veggie">
+      <UniqueIdentifier>{fc79c8a9-b014-48fa-8694-039c2e5422e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Food">
+      <UniqueIdentifier>{ce3f0929-7027-4282-804c-fef358931d5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Food\Dairy">
+      <UniqueIdentifier>{625134ed-3d1b-48ef-8971-f5f19f4a990f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Food\Sweets">
+      <UniqueIdentifier>{a51b18c1-4b5c-4948-a4b6-67d680dea2b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Food\Meat">
+      <UniqueIdentifier>{396e6351-2756-4cf1-9dc4-d226f30c0c15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Food\Veggie">
+      <UniqueIdentifier>{f6c66484-0a87-4371-a060-e28def7535a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Food.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Dairy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Meat.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Veggie.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Sweets.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Cheese.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Milk.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Yoghurt.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Steak.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Ham.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Prosciutto.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Rice.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tofu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hummus.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Madjarica.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Creampie.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Food.cpp">
+      <Filter>Source Files\Food</Filter>
     </ClCompile>
     <ClCompile Include="Cake.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Food\Sweets</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheese.cpp">
+      <Filter>Source Files\Food\Dairy</Filter>
+    </ClCompile>
+    <ClCompile Include="Creampie.cpp">
+      <Filter>Source Files\Food\Sweets</Filter>
+    </ClCompile>
+    <ClCompile Include="Dairy.cpp">
+      <Filter>Source Files\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="Ham.cpp">
+      <Filter>Source Files\Food\Meat</Filter>
+    </ClCompile>
+    <ClCompile Include="Hummus.cpp">
+      <Filter>Source Files\Food\Veggie</Filter>
+    </ClCompile>
+    <ClCompile Include="Madjarica.cpp">
+      <Filter>Source Files\Food\Sweets</Filter>
+    </ClCompile>
+    <ClCompile Include="Meat.cpp">
+      <Filter>Source Files\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="Milk.cpp">
+      <Filter>Source Files\Food\Dairy</Filter>
+    </ClCompile>
+    <ClCompile Include="Prosciutto.cpp">
+      <Filter>Source Files\Food\Meat</Filter>
+    </ClCompile>
+    <ClCompile Include="Rice.cpp">
+      <Filter>Source Files\Food\Veggie</Filter>
+    </ClCompile>
+    <ClCompile Include="Steak.cpp">
+      <Filter>Source Files\Food\Meat</Filter>
+    </ClCompile>
+    <ClCompile Include="Sweets.cpp">
+      <Filter>Source Files\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="Tofu.cpp">
+      <Filter>Source Files\Food\Veggie</Filter>
+    </ClCompile>
+    <ClCompile Include="Veggie.cpp">
+      <Filter>Source Files\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="Yoghurt.cpp">
+      <Filter>Source Files\Food\Dairy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Food.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Food</Filter>
     </ClInclude>
     <ClInclude Include="Dairy.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Food\FoodTypes</Filter>
     </ClInclude>
     <ClInclude Include="Meat.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Veggie.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Food\FoodTypes</Filter>
     </ClInclude>
     <ClInclude Include="Sweets.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Food\FoodTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Veggie.h">
+      <Filter>Header Files\Food\FoodTypes</Filter>
     </ClInclude>
     <ClInclude Include="Cheese.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Food\FoodTypes\Dairy</Filter>
     </ClInclude>
     <ClInclude Include="Milk.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Food\FoodTypes\Dairy</Filter>
     </ClInclude>
     <ClInclude Include="Yoghurt.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Steak.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Food\FoodTypes\Dairy</Filter>
     </ClInclude>
     <ClInclude Include="Ham.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Food\FoodTypes\Meat</Filter>
+    </ClInclude>
+    <ClInclude Include="Steak.h">
+      <Filter>Header Files\Food\FoodTypes\Meat</Filter>
     </ClInclude>
     <ClInclude Include="Prosciutto.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Rice.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tofu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Hummus.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Madjarica.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Creampie.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Food\FoodTypes\Meat</Filter>
     </ClInclude>
     <ClInclude Include="Cake.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Food\FoodTypes\Sweets</Filter>
+    </ClInclude>
+    <ClInclude Include="Creampie.h">
+      <Filter>Header Files\Food\FoodTypes\Sweets</Filter>
+    </ClInclude>
+    <ClInclude Include="Madjarica.h">
+      <Filter>Header Files\Food\FoodTypes\Sweets</Filter>
+    </ClInclude>
+    <ClInclude Include="Hummus.h">
+      <Filter>Header Files\Food\FoodTypes\Veggie</Filter>
+    </ClInclude>
+    <ClInclude Include="Tofu.h">
+      <Filter>Header Files\Food\FoodTypes\Veggie</Filter>
+    </ClInclude>
+    <ClInclude Include="Rice.h">
+      <Filter>Header Files\Food\FoodTypes\Veggie</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

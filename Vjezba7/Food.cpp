@@ -246,28 +246,27 @@ int Food::CalculateSpendingChange()
 	return 0;
 }
 
-ostream& operator<<(ostream& os, const Food& food) 
+ostream& Food::Print(ostream& os) const
 {
-	os << "Type: " << food.Type << endl
-		<< "Name: " << food.Name << endl
-		<< "Water(%): " << food.Water << endl
-		<< "Protein(%): " << food.Protein << endl
-		<< "Fat(%): " << food.Fat << endl
-		<< "Carbs(%): " << food.Carbs << endl
-		<< "Expiration: " << food.DateOfExpiration << endl
-		<< "Daily requirement(kg): " << food.DailyRequirement << endl
+	os << "Type: " << Type << endl
+		<< "Name: " << Name << endl
+		<< "Water(%): " << Water << endl
+		<< "Protein(%): " << Protein << endl
+		<< "Fat(%): " << Fat << endl
+		<< "Carbs(%): " << Carbs << endl
+		<< "Expiration: " << DateOfExpiration << endl
+		<< "Daily requirement(kg): " << DailyRequirement << endl
 		<< "Spending:  ";
-	for(auto i = 0; i < food.AllocationSize(); i++)
+	for (auto i = 0; i < AllocationSize(); i++)
 	{
-		os << food.MonthlySpending[i].month << "-" << food.MonthlySpending[i].year << ": " << food.MonthlySpending[i].spending << "  ";
+		os << MonthlySpending[i].month << "-" << MonthlySpending[i].year << ": " << MonthlySpending[i].spending << "  ";
 	}
 	os << endl;
 
 	return os;
 }
 
-
-void Food::Print()
+ostream& operator<<(ostream& os, const Food& food)
 {
-	cout << *this;
+	return food.Print(os);
 }

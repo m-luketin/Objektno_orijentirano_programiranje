@@ -15,15 +15,16 @@ Meat::~Meat()
 	//delete this;
 }
 
-ostream& operator<<(ostream& os, const Meat& meat) 
+ostream& Meat::Print(ostream& os) const
 {
-	os << (Food)meat
-		<< "Main dish(kg): " << meat.mainExpenditure << endl
-		<< "Side dish(kg): " << meat.sideExpenditure << endl << endl;
+	Food::Print(os);
+	os << "Main dish(kg): " << mainExpenditure << endl
+		<< "Side dish(kg): " << sideExpenditure << endl << endl;
+
 	return os;
 }
 
-void Meat::Print()
+ostream& operator<<(ostream& os, const Meat& meat)
 {
-	cout << *this;
+	return meat.Print(os);
 }

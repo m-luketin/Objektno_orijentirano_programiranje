@@ -10,6 +10,6 @@ class Veggie : public Food
 public:
 	Veggie(const int sd, const int  md, const std::string ft, const std::string fn, const int wp, const int pp, const int fp, const int cp, const std::string doe, const int dfr);
 	~Veggie();
-	friend ostream& operator<<(ostream& os, const Veggie& dairy);
-	void Print() override;
+	friend ostream& operator<<(ostream& os, const Veggie& veggie);
+	ostream& Print(ostream& os) const override;
 };
