@@ -26,6 +26,10 @@ int main()
 	{
 		cout << **i;		
 	}
+
 	delete yoghurt;
+	delete tofu;
+	delete ham;
+	delete cake;
 	system("pause");
 }

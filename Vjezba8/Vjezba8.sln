@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vjezba8", "Vjezba8\Vjezba8.vcxproj", "{C6CBFEB3-5163-4992-B292-ACB636C8A44B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6CBFEB3-5163-4992-B292-ACB636C8A44B}.Debug|x64.ActiveCfg = Debug|x64
+		{C6CBFEB3-5163-4992-B292-ACB636C8A44B}.Debug|x64.Build.0 = Debug|x64
+		{C6CBFEB3-5163-4992-B292-ACB636C8A44B}.Debug|x86.ActiveCfg = Debug|Win32
+		{C6CBFEB3-5163-4992-B292-ACB636C8A44B}.Debug|x86.Build.0 = Debug|Win32
+		{C6CBFEB3-5163-4992-B292-ACB636C8A44B}.Release|x64.ActiveCfg = Release|x64
+		{C6CBFEB3-5163-4992-B292-ACB636C8A44B}.Release|x64.Build.0 = Release|x64
+		{C6CBFEB3-5163-4992-B292-ACB636C8A44B}.Release|x86.ActiveCfg = Release|Win32
+		{C6CBFEB3-5163-4992-B292-ACB636C8A44B}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {17F98459-B072-44DF-BC7E-2D4247CD6DB4}
+	EndGlobalSection
+EndGlobal
