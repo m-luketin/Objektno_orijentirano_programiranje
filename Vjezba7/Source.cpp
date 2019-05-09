@@ -24,9 +24,8 @@ int main()
 
 	for (auto i = 0; i < 4; i++)
 	{
-		cout << *(Meat*)(foodVector->at(i));		
+		cout << *foodVector->at(i);		
 	}
 	
-
 	system("pause");
 }
