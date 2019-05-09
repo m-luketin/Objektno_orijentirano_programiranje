@@ -11,10 +11,7 @@ Dairy::Dairy(const int sd, const int  md, const std::string ft, const std::strin
 	sideExpenditure = sd;
 }
 
-Dairy::~Dairy()
-{
-	//delete this;
-}
+Dairy::~Dairy() = default;
 
 ostream& Dairy::Print(ostream& os) const
 {
@@ -23,9 +20,4 @@ ostream& Dairy::Print(ostream& os) const
 		<< "Side dish(kg): " << sideExpenditure << endl << endl;
 
 	return os;
-}
-
-ostream& operator<<(ostream& os, const Dairy& dairy)
-{
-	return dairy.Print(os);
 }

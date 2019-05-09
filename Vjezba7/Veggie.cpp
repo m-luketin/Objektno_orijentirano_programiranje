@@ -10,10 +10,7 @@ Veggie::Veggie(const int sd, const int  md, const std::string ft, const std::str
 	sideExpenditure = sd;
 }
 
-Veggie::~Veggie()
-{
-	//delete this;
-}
+Veggie::~Veggie() = default;
 
 ostream& Veggie::Print(ostream& os) const
 {
@@ -22,9 +19,4 @@ ostream& Veggie::Print(ostream& os) const
 		<< "Side dish(kg): " << sideExpenditure << endl << endl;
 
 	return os;
-}
-
-ostream& operator<<(ostream& os, const Veggie& veggie)
-{
-	return veggie.Print(os);
 }

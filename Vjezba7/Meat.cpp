@@ -10,10 +10,7 @@ Meat::Meat(const int sd, const int  md, const std::string ft, const std::string 
 	sideExpenditure = sd;
 }
 
-Meat::~Meat()
-{
-	//delete this;
-}
+Meat::~Meat() = default;
 
 ostream& Meat::Print(ostream& os) const
 {
@@ -22,9 +19,4 @@ ostream& Meat::Print(ostream& os) const
 		<< "Side dish(kg): " << sideExpenditure << endl << endl;
 
 	return os;
-}
-
-ostream& operator<<(ostream& os, const Meat& meat)
-{
-	return meat.Print(os);
 }

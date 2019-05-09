@@ -10,6 +10,5 @@ class Meat : public Food
 public:
 	Meat(const int sd, const int  md, const std::string ft, const std::string fn, const int wp, const int pp, const int fp, const int cp, const std::string doe, const int dfr);
 	~Meat();
-	friend ostream& operator<<(ostream& os, const Meat& meat);
 	ostream& Print(ostream& os) const override;
 };

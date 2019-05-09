@@ -10,22 +10,22 @@ using namespace std;
 
 int main()
 {
-	auto *gavrilovic = new Ham(10, 0, "Meat", "Ham", 20, 30, 40, 17, "10-10-2019", 50 );
-	auto *disgusting = new Tofu(15, 0, "Veggie", "Tofu", 10, 15, 40, 10, "07-11-2019", 20);
-	auto *zbregov = new Yoghurt(20, 0, "Dairy", "Yoghurt", 5, 55, 45, 20, "27-04-2020", 10);
-	auto *ferrero = new Cake(20, "Sweets", "Cake", 5, 55, 45, 20, "27-04-2018", 10);
+	auto ham = new Ham(10, 0, "Meat", "Ham", 20, 30, 40, 17, "10-10-2019", 50 );
+	auto tofu = new Tofu(15, 0, "Veggie", "Tofu", 10, 15, 40, 10, "07-11-2019", 20);
+	auto yoghurt = new Yoghurt(0, 0, "Dairy", "Yoghurt", 5, 55, 45, 20, "27-04-2020", 10);
+	auto cake = new Cake(20, "Sweets", "Cake", 5, 55, 45, 20, "27-04-2018", 10);
 
-	auto foodVector = new vector<Food*>;
+	auto foodVector = *new vector<Food*>;
 	
-	foodVector->push_back(gavrilovic);
-	foodVector->push_back(disgusting);
-	foodVector->push_back(zbregov);
-	foodVector->push_back(ferrero);
+	foodVector.push_back(ham);
+	foodVector.push_back(tofu);
+	foodVector.push_back(yoghurt);
+	foodVector.push_back(cake);
 
-	for (auto i = 0; i < 4; i++)
+	for (auto i = foodVector.begin(); i != foodVector.end(); i++)
 	{
-		cout << *foodVector->at(i);		
+		cout << **i;		
 	}
-	
+	delete yoghurt;
 	system("pause");
 }

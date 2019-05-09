@@ -30,17 +30,9 @@ Food::Food(const std::string ft, const std::string fn, const int wp, const int p
 	DailyRequirement = dfr;
 
 	MonthlySpending = new Spending[AllocationSize()];
-
-	std::cout << "Constructor called!\n";
 }
 
-Food::~Food()
-{
-	//delete[] MonthlySpending;
-	//delete this;
-
-	std::cout << "Destructor called!\n";
-}
+Food::~Food() = default;
 
 Food::Food(const Food &otherFood)
 {

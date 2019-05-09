@@ -10,6 +10,5 @@ class Sweets : public Food
 public:
 	Sweets(const int  md, const std::string ft, const std::string fn, const int wp, const int pp, const int fp, const int cp, const std::string doe, const int dfr);
 	~Sweets();
-	friend ostream& operator<<(ostream& os, const Sweets& sweets);
 	ostream& Print(ostream& os) const override;
 };

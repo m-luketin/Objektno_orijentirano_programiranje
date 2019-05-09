@@ -9,11 +9,7 @@ Sweets::Sweets( const int  md, const std::string ft, const std::string fn, const
 	mainExpenditure = md;
 }
 
-Sweets::~Sweets()
-{
-	//delete this;
-}
-
+Sweets::~Sweets() = default;
 
 ostream& Sweets::Print(ostream& os) const
 {
@@ -23,7 +19,3 @@ ostream& Sweets::Print(ostream& os) const
 	return os;
 }
 
-ostream& operator<<(ostream& os, const Sweets& sweets)
-{
-	return sweets.Print(os);
-}
