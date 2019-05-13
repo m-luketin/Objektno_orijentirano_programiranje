@@ -1,6 +1,6 @@
 #include "Vec3.h"
 
-int OOP::Vec3::counter = 0;
+
 
 int main()
 {
