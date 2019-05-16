@@ -1,12 +1,9 @@
 #pragma once
 
-#include "VideoGame.h"
+#include "Game.h"
 
-class OpenWorld : public VideoGame
+class OpenWorld : virtual public Game
 {
-	vector<enum platforms> platforms;
-	string type;
 public:
-	OpenWorld(string type, vector<enum platforms> platforms);
-	~OpenWorld();
+	OpenWorld();
 };

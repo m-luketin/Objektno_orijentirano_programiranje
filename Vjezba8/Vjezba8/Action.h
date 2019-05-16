@@ -1,12 +1,9 @@
 #pragma once
 
-#include "VideoGame.h"
+#include "Game.h"
 
-class Action : public VideoGame
+class Action : virtual public Game
 {
-	vector<enum platforms> platforms;
-	string type;
 public:
-	Action(string type, vector<enum platforms> platforms);
-	~Action();
+	Action();
 };

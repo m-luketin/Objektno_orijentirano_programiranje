@@ -2,8 +2,8 @@
 
 using namespace std;
 
-Action::Action(string gameType, vector<enum platforms> gamePlatforms)
+Action::Action()
 {
-	type = gameType;
-	platforms = gamePlatforms;
 }
+
+

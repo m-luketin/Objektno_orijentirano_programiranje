@@ -118,6 +118,7 @@
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="DarkSouls.cpp" />
     <ClCompile Include="Fallout4.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GodOfWar.cpp" />
     <ClCompile Include="LastOfUs2.cpp" />
     <ClCompile Include="OpenWorld.cpp" />
@@ -129,6 +130,7 @@
     <ClInclude Include="Action.h" />
     <ClInclude Include="DarkSouls.h" />
     <ClInclude Include="Fallout4.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="GodOfWar.h" />
     <ClInclude Include="LastOfUs2.h" />
     <ClInclude Include="OpenWorld.h" />

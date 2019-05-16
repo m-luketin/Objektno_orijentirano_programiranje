@@ -1,13 +1,9 @@
 #pragma once
 
-#include "VideoGame.h"
+#include "Game.h"
 
-class Rpg : public VideoGame
+class Rpg : virtual public Game
 {
-	vector<enum platforms> platforms;
-	string type;
-
 public:
-	Rpg(string type, vector<enum platforms> platforms);
-	~Rpg();
+	Rpg();
 };

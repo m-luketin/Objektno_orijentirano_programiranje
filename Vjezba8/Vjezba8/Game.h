@@ -1,15 +1,15 @@
 #pragma once
+#include "VideoGame.h"
 
-#include "Rpg.h"
-#include "OpenWorld.h"
+using namespace std;
 
-class Witcher3 : virtual public Rpg, virtual public OpenWorld
+class Game : public VideoGame
 {
 	vector<platforms> platformsVector;
 	string type;
 
 public:
-	Witcher3();
+	Game() = default;
 	string Type() override;
 	vector<platforms> Platforms() override;
 };
