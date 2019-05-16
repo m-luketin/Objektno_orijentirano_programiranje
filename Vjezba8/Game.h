@@ -5,6 +5,7 @@ using namespace std;
 
 class Game : public VideoGame
 {
+protected:
 	vector<platforms> platformsVector;
 	string type;
 
