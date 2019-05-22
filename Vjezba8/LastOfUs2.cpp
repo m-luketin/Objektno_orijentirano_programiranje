@@ -1,7 +1,7 @@
 #include "LastOfUs2.h"
 
-LastOfUs2::LastOfUs2()
+LastOfUs2::LastOfUs2(string platforms)
 {
 	type = "Action";
-	platformsVector = { PS4 };
+	platformsVector = ParseToEnum(platforms);
 }

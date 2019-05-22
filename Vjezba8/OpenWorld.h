@@ -4,6 +4,4 @@
 
 class OpenWorld : virtual public Game
 {
-public:
-	OpenWorld();
 };

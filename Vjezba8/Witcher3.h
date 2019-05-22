@@ -9,7 +9,7 @@ class Witcher3 : virtual public Rpg, virtual public OpenWorld
 	string type;
 
 public:
-	Witcher3();
+	Witcher3(string platforms);
 	string Type() override;
-	vector<platforms> Platforms() override;
+	vector<platforms>* Platforms() override;
 };

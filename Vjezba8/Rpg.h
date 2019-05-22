@@ -4,6 +4,4 @@
 
 class Rpg : virtual public Game
 {
-public:
-	Rpg();
 };

@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class Game : public VideoGame
+class Game : virtual public VideoGame
 {
 protected:
 	vector<platforms> platformsVector;
@@ -12,5 +12,7 @@ protected:
 public:
 	Game() = default;
 	string Type() override;
-	vector<platforms> Platforms() override;
+	vector<platforms>* Platforms() override;
+	vector<platforms> ParseToEnum(string str);
+
 };

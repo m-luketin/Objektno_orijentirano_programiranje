@@ -4,6 +4,5 @@
 
 class Action : virtual public Game
 {
-public:
-	Action();
+
 };

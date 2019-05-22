@@ -6,5 +6,5 @@ class GodOfWar : public Action
 {
 
 public:
-	GodOfWar();
+	GodOfWar(string platforms);
 };

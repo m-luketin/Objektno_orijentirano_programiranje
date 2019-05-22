@@ -1,7 +1,7 @@
 #include "DarkSouls.h"
 
-DarkSouls::DarkSouls()
+DarkSouls::DarkSouls(string platforms)
 {
 	type = "Rpg";
-	platformsVector = { PC, XBOX, PS4 };
+	platformsVector = ParseToEnum(platforms);
 }

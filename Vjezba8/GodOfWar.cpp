@@ -1,7 +1,7 @@
 #include "GodOfWar.h"
 
-GodOfWar::GodOfWar()
+GodOfWar::GodOfWar(string platforms)
 {
 	type = "Action";
-	platformsVector = { PS4 };
+	platformsVector = ParseToEnum(platforms);
 }

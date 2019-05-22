@@ -6,5 +6,5 @@ class Fallout4 : public Rpg
 {
 
 public:
-	Fallout4();
+	Fallout4(string platforms);
 };

@@ -5,5 +5,5 @@
 class DarkSouls : public Rpg
 {
 public:
-	DarkSouls();
+	DarkSouls(string platforms);
 };

@@ -1,10 +1,9 @@
 #include "Witcher3.h"
-#include <iostream>
 
-Witcher3::Witcher3()
+Witcher3::Witcher3(string platforms)
 {
 	type = "Open World, Rpg";
-	platformsVector = { PS4 };
+	platformsVector = ParseToEnum(platforms);
 }
 
 string Witcher3::Type()
@@ -12,7 +11,7 @@ string Witcher3::Type()
 	return type;
 }
 
-vector<VideoGame::platforms> Witcher3::Platforms()
+vector<platforms>* Witcher3::Platforms()
 {
-	return platformsVector;
+	return &platformsVector;
 }
