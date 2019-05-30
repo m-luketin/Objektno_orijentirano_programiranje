@@ -7,8 +7,10 @@ using namespace std;
 int main()
 {
 	Zbroj<int> objekt(2,3);
-	
-	cout << objekt.Zbroji();
-	
+	Zbroj<char> objektDrugi('a', 'c');
+
+	cout << objekt.Zbroji() << endl;
+	cout << objektDrugi.Zbroji() << endl;
+
 	system("pause");
 }
